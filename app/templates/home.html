@@ -1,0 +1,29 @@
+{% extends "base.html" %}
+{% block title%} Home {% endblock %}
+
+{% block content %}
+<div class="container form-data">
+    <form action="/register" method="POST">
+        <div class="title">URL Shortner</div>
+        <div class="user-details">
+            <div class="input-box">
+                <span class="details">Original URL</span>
+                <input name="URL" type="text" placeholder="Paste your url here" required>          
+            </div>
+            <div class="button">
+                <input type="submit" value="Create URL">
+            </div>
+            {% if short_url: %}
+                <div class="input-box">
+                    <span class="details">Short URL have been created sucessfully: <a href={{short_url}}>{{short_url}}</a></span>
+                </div>
+            {% endif %}
+            {% if message: %}
+                <div class="input-box">
+                    <span class="details">{{message}}</span>
+                </div>
+            {% endif %}
+        </div>
+    </form>
+</div>
+{% endblock %}
